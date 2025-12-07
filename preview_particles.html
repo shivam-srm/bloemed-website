@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharma Particles Preview</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #0b1c39;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        button:hover,
+        button.active {
+            background: #FF4917;
+            /* Primary Red */
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 73, 23, 0.4);
+        }
+
+        .title {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: white;
+            pointer-events: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        p {
+            margin: 5px 0 0;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="controls">
+        <button onclick="setMode(1)" id="btn1" class="active">Molecular Network</button>
+        <button onclick="setMode(2)" id="btn2">Floating Cells</button>
+        <button onclick="setMode(3)" id="btn3">DNA Flow</button>
+    </div>
+
+    <div class="title">
+        <h1 id="modeTitle">Molecular Network</h1>
+        <p>Connecting particles representing chemical bonds and research.</p>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let mode = 1;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1; // Speed
+                this.vy = (Math.random() - 0.5) * 1;
+                this.size = Math.random() * 3 + 1; // Base size
+                this.alpha = Math.random() * 0.5 + 0.1;
+
+                // For DNA
+                this.angle = Math.random() * Math.PI * 2;
+            }
+
+            update() {
+                if (mode === 1) { // Molecular
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                } else if (mode === 2) { // Cells
+                    this.y -= this.vy * 0.5 + 0.2; // Float up
+                    this.x += Math.sin(this.angle) * 0.3; // Wobble
+                    this.angle += 0.02;
+                    if (this.y < -50) this.y = height + 50;
+                } else if (mode === 3) { // DNA
+                    this.x += 1;
+                    this.y = this.baseY + Math.sin(this.x * 0.01 + this.offset) * 50;
+                    if (this.x > width) this.x = -10;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                if (mode === 1) {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (mode === 2) {
+                    // Cell look - larger, blurry
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.3})`;
+                    ctx.arc(this.x, this.y, this.size * 5, 0, Math.PI * 2); // Larger
+                    ctx.fill();
+                    // Core
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.6})`;
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (mode === 3) {
+                    ctx.fillStyle = `rgba(255, 73, 23, ${this.alpha + 0.3})`; // Reddish for DNA
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        }
+
+        // Init Particles
+        function initParticles() {
+            particles = [];
+            let count = mode === 1 ? 100 : (mode === 2 ? 40 : 150);
+
+            for (let i = 0; i < count; i++) {
+                let p = new Particle();
+                if (mode === 3) {
+                    p.baseY = Math.random() * height;
+                    p.offset = Math.random() * Math.PI * 2;
+                    p.x = Math.random() * width;
+                }
+                particles.push(p);
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Connections for Mode 1
+            if (mode === 1) {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - dist / 1000})`; // Fade with distance
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.setMode = function (m) {
+            mode = m;
+            document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn' + m).classList.add('active');
+
+            const titles = [
+                "",
+                "Molecular Network|Connecting particles representing chemical bonds and research.",
+                "Floating Cells|Abstract biological cells floating gently in a medium.",
+                "DNA Flow|Double helix inspired particle streams representing genetics."
+            ];
+            const [t, d] = titles[m].split('|');
+            document.querySelector('#modeTitle').textContent = t;
+            document.querySelector('p').textContent = d;
+
+            initParticles();
+        }
+
+        initParticles();
+        animate();
+
+    </script>
+</body>
+
+</html>
