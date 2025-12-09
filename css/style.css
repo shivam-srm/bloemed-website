@@ -616,6 +616,7 @@ h6 {
     font-size: 2.5rem !important;
     /* Slightly smaller than 3x for balance */
     background: linear-gradient(45deg, var(--primary), #ff9999);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -721,6 +722,7 @@ h6 {
     animation: cinematicFade 1.5s ease-out forwards 0.5s;
     text-align: center;
     background: linear-gradient(45deg, var(--primary), #333);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1155,4 +1157,836 @@ h6 {
     color: #fff !important;
     transform: translateY(-3px) rotate(360deg);
     box-shadow: 0 5px 15px rgba(255, 49, 49, 0.4);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ======================================== */
+
+/* Extra Small Devices (Phones, 320px - 575px) */
+@media (max-width: 575.98px) {
+
+    /* Typography */
+    h1 {
+        font-size: 1.75rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+    }
+
+    h4 {
+        font-size: 1.1rem !important;
+    }
+
+    h5 {
+        font-size: 1rem !important;
+    }
+
+    h6 {
+        font-size: 0.9rem !important;
+    }
+
+    .display-4 {
+        font-size: 2rem !important;
+    }
+
+    .display-6 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Navbar */
+    .navbar-brand img {
+        width: 120px !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    /* Hero Section */
+    .hero-header {
+        min-height: 400px;
+        background-position: center;
+        padding: 60px 0 !important;
+    }
+
+    .hero-header h4 {
+        font-size: 1.1rem !important;
+    }
+
+    .hero-header h5 {
+        font-size: 0.9rem !important;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .btn-lg {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+
+    .btn.rounded-pill {
+        padding: 10px 20px;
+    }
+
+    /* Service Items */
+    .service-item {
+        height: auto;
+        padding: 30px 20px;
+        margin-bottom: 20px;
+    }
+
+    .service-item .service-icon {
+        width: 100px;
+        height: 80px;
+    }
+
+    .service-item .service-icon i {
+        font-size: 2rem !important;
+    }
+
+    /* Product Cards */
+    .product-card {
+        margin-bottom: 20px;
+    }
+
+    .product-card .text-center {
+        padding: 20px !important;
+    }
+
+    .product-list-aligned li {
+        font-size: 0.95rem;
+        padding-left: 25px;
+    }
+
+    /* About Feature Boxes */
+    .about-feature-box {
+        padding: 20px 10px;
+        margin-bottom: 15px;
+    }
+
+    .about-feature-box i {
+        font-size: 2rem !important;
+    }
+
+    /* Contact Info Cards */
+    .contact-info-card {
+        padding: 30px 20px;
+        margin-bottom: 20px;
+    }
+
+    .contact-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .contact-icon-wrapper i {
+        font-size: 1.5rem !important;
+    }
+
+    /* Forms */
+    .modern-form-container {
+        padding: 25px;
+    }
+
+    .modern-input {
+        padding: 12px 15px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+
+    .btn-modern-submit {
+        padding: 12px 20px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+
+    /* Team Items */
+    .team-item .row {
+        height: auto !important;
+    }
+
+    .team-item h3 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Footer */
+    .footer-link {
+        font-size: 14px;
+    }
+
+    .footer-social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Spacing Adjustments */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .container-fluid.py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .mb-5 {
+        margin-bottom: 2rem !important;
+    }
+
+    .mt-5 {
+        margin-top: 2rem !important;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* Owl Carousel Navigation */
+    .price-carousel .owl-nav,
+    .team-carousel .owl-nav {
+        padding: 0 15px;
+    }
+
+    .price-carousel .owl-nav .owl-prev,
+    .price-carousel .owl-nav .owl-next,
+    .team-carousel .owl-nav .owl-prev,
+    .team-carousel .owl-nav .owl-next {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    /* Job Cards (Careers) */
+    .job-card {
+        padding: 20px;
+    }
+
+    .job-card h4 {
+        font-size: 1.1rem !important;
+    }
+
+    .job-meta span {
+        font-size: 0.85rem;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Culture Boxes */
+    .culture-box,
+    .culture-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .culture-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Map Container */
+    .map-container iframe {
+        min-height: 300px !important;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+        padding: 10px;
+    }
+
+    .dropdown-item {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    /* Welcome Text (Spinner) */
+    .welcome-text {
+        font-size: 1.25rem !important;
+    }
+
+    .medical-loader i {
+        font-size: 5rem !important;
+    }
+
+    /* Topbar - Hide on mobile */
+    .container-fluid.py-2.border-bottom {
+        display: none !important;
+    }
+
+    /* Navbar Padding */
+    .navbar {
+        padding: 10px 0 !important;
+    }
+
+    /* Product Overlay Text */
+    .product-overlay h3 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Floating Image */
+    .floating-image {
+        animation: none;
+    }
+
+    /* Ensure no horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+
+    .container-fluid {
+        overflow-x: hidden;
+    }
+}
+
+/* Small Devices (Landscape Phones, 576px - 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    /* Typography */
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.75rem !important;
+    }
+
+    h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .display-4 {
+        font-size: 2.25rem !important;
+    }
+
+    /* Navbar */
+    .navbar-brand img {
+        width: 140px !important;
+    }
+
+    /* Hero Section */
+    .hero-header {
+        min-height: 450px;
+        padding: 80px 0 !important;
+    }
+
+    /* Service Items */
+    .service-item {
+        height: auto;
+        padding: 35px 25px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 25px;
+    }
+
+    /* Spacing */
+    .py-5 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    /* Topbar - Show on landscape phones */
+    .container-fluid.py-2.border-bottom {
+        display: block !important;
+    }
+
+    .topbar-item,
+    .topbar-social-icon {
+        font-size: 14px;
+    }
+}
+
+/* Medium Devices (Tablets, 768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* Typography */
+    h1 {
+        font-size: 2.25rem !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    h3 {
+        font-size: 1.75rem !important;
+    }
+
+    .display-4 {
+        font-size: 2.5rem !important;
+    }
+
+    .display-6 {
+        font-size: 2rem !important;
+    }
+
+    /* Navbar */
+    .navbar-brand img {
+        width: 150px !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    /* Hero Section */
+    .hero-header {
+        min-height: 500px;
+        padding: 100px 0 !important;
+    }
+
+    /* Service Items */
+    .service-item {
+        height: 320px;
+        padding: 25px;
+    }
+
+    /* Product Cards - 2 columns */
+    .price-carousel .owl-item {
+        width: 50%;
+    }
+
+    /* About Feature Boxes */
+    .about-feature-box {
+        padding: 22px 12px;
+    }
+
+    /* Contact Cards */
+    .contact-info-card {
+        padding: 35px 25px;
+    }
+
+    /* Forms */
+    .modern-form-container {
+        padding: 35px;
+    }
+
+    /* Team Items */
+    .team-item .row {
+        height: 320px !important;
+    }
+
+    /* Spacing */
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+        right: 20px;
+    }
+}
+
+/* Large Devices (Desktops, 992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    /* Typography - Slightly smaller than XL */
+    h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .display-4 {
+        font-size: 3rem !important;
+    }
+
+    /* Navbar */
+    .navbar-light .navbar-nav .nav-link {
+        margin-left: 20px;
+        font-size: 17px;
+    }
+
+    /* Service Items */
+    .service-item {
+        height: 340px;
+    }
+
+    /* Product Cards - 3 columns */
+    .price-carousel .owl-item {
+        width: 33.333%;
+    }
+}
+
+/* Extra Large Devices (Large Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Default desktop styles already defined above */
+    /* This breakpoint maintains the original design */
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-header {
+        min-height: 350px;
+        padding: 40px 0 !important;
+    }
+
+    .service-item {
+        height: auto;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Increase touch targets */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Remove hover effects on touch devices */
+    .service-item:hover,
+    .product-card:hover,
+    .about-feature-box:hover {
+        transform: none;
+    }
+
+    /* Disable animations that might cause issues */
+    .floating-image {
+        animation: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+
+    .navbar,
+    .footer,
+    .back-to-top,
+    #spinner {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+    }
+
+    h1 {
+        font-size: 18pt !important;
+    }
+
+    h2 {
+        font-size: 16pt !important;
+    }
+}
+
+/* High DPI Displays (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    /* Ensure images look crisp on retina displays */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .floating-image {
+        animation: none !important;
+    }
+
+    .medical-loader i {
+        animation: none !important;
+    }
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+    /* Placeholder for future dark mode implementation */
+    /* Currently maintaining light theme for consistency */
+}
+
+/* ========================================
+   HERO SECTION INTERACTIVE ANIMATIONS
+   ======================================== */
+
+/* Welcome Text Animation */
+.hero-welcome-text {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #FF3131 0%, #1D2A4D 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.hero-welcome-text span {
+    background: linear-gradient(135deg, #FF3131 0%, #1D2A4D 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Brand Name Animations */
+.hero-brand-name {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInScale 0.8s ease-out 0.6s forwards;
+    font-weight: 800 !important;
+    font-size: 1.1em;
+    color: #1D2A4D !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.hero-brand-name-red {
+    display: inline-block;
+    color: #FF3131 !important;
+    opacity: 0;
+    animation: fadeInScale 0.8s ease-out 0.8s forwards, glow 2s ease-in-out 1.5s infinite;
+    font-weight: 800 !important;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px rgba(255, 49, 49, 0.5), 2px 2px 4px rgba(255, 49, 49, 0.3);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(255, 49, 49, 0.3);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(255, 49, 49, 0.6), 0 0 30px rgba(255, 49, 49, 0.4);
+    }
+}
+
+/* Tagline Animation */
+.hero-tagline {
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 1s forwards;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 15px !important;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Dedication Text - Typing Effect */
+.hero-dedication {
+    display: inline-block;
+    opacity: 0;
+    animation: typeIn 1.5s steps(40) 1.5s forwards;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #FF3131;
+    animation: typeIn 1.5s steps(40) 1.5s forwards, blink 0.75s step-end 1.5s 3;
+    background: linear-gradient(135deg, #FF3131 0%, #354F8E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700 !important;
+    font-size: 1.1em;
+    padding-left: 5px;
+}
+
+@keyframes typeIn {
+    from {
+        opacity: 1;
+        width: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* CTA Button Animation */
+.hero-cta-btn {
+    opacity: 0;
+    animation: fadeInBounce 1s ease-out 2.5s forwards, pulse 2s ease-in-out 3.5s infinite;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+@keyframes fadeInBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    60% {
+        transform: translateY(-5px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 49, 49, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 15px rgba(255, 49, 49, 0);
+    }
+}
+
+/* CTA Button Hover Effects */
+.hero-cta-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 49, 49, 0.4) !important;
+}
+
+.hero-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.hero-cta-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.hero-cta-btn span,
+.hero-cta-btn i {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-cta-btn i {
+    transition: transform 0.3s ease;
+}
+
+.hero-cta-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Mobile Optimizations for Hero Animations */
+@media (max-width: 767.98px) {
+    .hero-dedication {
+        animation: fadeIn 1s ease-out 1.5s forwards;
+        border-right: none;
+        white-space: normal;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .hero-cta-btn {
+        animation: fadeInBounce 1s ease-out 2s forwards;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-welcome-text,
+    .hero-brand-name,
+    .hero-brand-name-red,
+    .hero-tagline,
+    .hero-dedication,
+    .hero-cta-btn {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    .hero-dedication {
+        border-right: none;
+    }
 }
